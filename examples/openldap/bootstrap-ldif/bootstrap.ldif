@@ -1,0 +1,58 @@
+# Organizational Unit: people
+dn: ou=people,dc=example,dc=org
+objectClass: top
+objectClass: organizationalUnit
+ou: people
+
+# Organizational Unit: groups
+dn: ou=groups,dc=example,dc=org
+objectClass: top
+objectClass: organizationalUnit
+ou: groups
+
+# Organizational Unit: memberGroups
+dn: ou=memberGroups,dc=example,dc=org
+objectClass: top
+objectClass: organizationalUnit
+ou: memberGroups
+
+# Person 1
+dn: uid=alice,ou=people,dc=example,dc=org
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+uid: alice
+cn: alice
+sn: alice
+givenName: alice
+mail: alice@example.org
+userPassword: alice
+
+# Person 2
+dn: uid=bob,ou=people,dc=example,dc=org
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+uid: bob
+cn: bob
+sn: bob
+givenName: bob
+mail: bob@example.org
+userPassword: bob
+
+# Group: devs
+dn: cn=devs,ou=groups,dc=example,dc=org
+objectClass: top
+objectClass: groupOfNames
+cn: devs
+member: uid=alice,ou=people,dc=example,dc=org
+member: uid=bob,ou=people,dc=example,dc=org
+
+# MemberGroup: adminGroup
+dn: cn=adminGroup,ou=memberGroups,dc=example,dc=org
+objectClass: top
+objectClass: groupOfNames
+cn: adminGroup
+member: uid=alice,ou=people,dc=example,dc=org
